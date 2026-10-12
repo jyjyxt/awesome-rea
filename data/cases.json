@@ -1,0 +1,143 @@
+{
+  "updatedAt": "2026-10-12",
+  "categories": {
+    "creative": { "zh": "创作工具", "en": "Creative tools" },
+    "devtools": { "zh": "开发工具", "en": "Developer tools" },
+    "hardware": { "zh": "设备与协议", "en": "Devices & protocols" },
+    "games": { "zh": "游戏与保存", "en": "Games & preservation" },
+    "apps": { "zh": "应用行为", "en": "App behavior" },
+    "analysis": { "zh": "算法与分析", "en": "Algorithms & analysis" }
+  },
+  "cases": [
+    {
+      "id": "capcut-templates", "target": "CapCut", "category": "creative", "language": "zh", "evidence": "report", "author": "@dotey", "publishedAt": "2026-10-12", "checkedAt": "2026-10-12", "tools": ["REA", "Codex", "Computer Use"],
+      "title": { "zh": "从界面操作，找到动态字幕模板", "en": "Follow UI actions to discover caption templates" },
+      "summary": { "zh": "不知道模板在哪、字幕如何渲染？让助手操作 CapCut，同时观察网络请求和本地文件，找出模板下载路径。", "en": "An agent operates CapCut while observing requests and saved files to locate animated-caption assets and their download paths." },
+      "question": { "zh": "CapCut 的动态字幕模板保存在哪里，怎样找到它们？", "en": "Where are CapCut's animated-caption templates stored, and how can they be located?" },
+      "outcome": { "zh": "作者报告：Codex 从逐个点击转向直接下载，最终获得 2,291 个模板。", "en": "The author reports that Codex switched from individual clicks to direct downloads and collected 2,291 templates." },
+      "workflow": { "zh": ["让已接入 REA 的 Codex 调查字幕与模板。", "用 Computer Use 点击模板下载，观察网络请求及磁盘保存位置。", "发现重复的下载路径后，改为通过 URL 获取模板。"], "en": ["Ask a REA-connected Codex session to investigate captions and templates.", "Use Computer Use to download samples while observing requests and saved files.", "Identify repeatable download paths and fetch assets through their URLs."] },
+      "limitation": { "zh": "数量来自作者报告。原帖没有证明已复现整个字幕渲染器，也没有公开完整的独立复现测试。", "en": "The count is author-reported. The post does not establish a complete caption renderer or publish an independent reproduction test." },
+      "sources": [{ "label": "X · @dotey", "url": "https://x.com/dotey/status/2109470081776283941", "kind": "x" }]
+    },
+    {
+      "id": "codex-annotations", "target": "Codex / ChatGPT", "category": "devtools", "language": "zh", "evidence": "report", "author": "@dotey", "publishedAt": "2026-10-11", "checkedAt": "2026-10-12", "tools": ["REA", "Codex", "Electron"],
+      "title": { "zh": "追踪浏览器标记，找到注解接口", "en": "Trace browser annotations to a public API" },
+      "summary": { "zh": "分析 Codex 内置浏览器里“标记 → 评论 → 输入框”的链路，最后找到可由网页调用的注解接口，并做了测试页。", "en": "Investigate the annotation-to-composer flow in Codex's browser, discover an existing website API, and build a test page." },
+      "question": { "zh": "网页能否请求 Codex 打开注解，并预填评论？", "en": "Can a website request an annotation dialog and prefill a comment in Codex?" },
+      "outcome": { "zh": "测试页能打开评论框并填充内容；作者没有做到直接把评论附加到聊天输入框。", "en": "The test page could open the annotation dialog and prefill content; directly attaching a comment to the composer did not work." },
+      "workflow": { "zh": ["用 REA 调查应用里的浏览器标记与消息链路。", "用户配合实际发送一次消息，辅助分析。", "制作测试页，核对 document.oai.annotation.request() 的行为。"], "en": ["Investigate the app's browser annotation and message flow with REA.", "Have the user send a message to help observe the behavior.", "Build a page to test document.oai.annotation.request()."] },
+      "limitation": { "zh": "是接口发现与部分行为验证。不能据此推断网页可以任意写入 composer，或其他编程助手也支持相同接口。", "en": "This is API discovery with partial behavior validation, not evidence of unrestricted composer access or support in other coding agents." },
+      "sources": [{ "label": "X · @dotey", "url": "https://x.com/dotey/status/2109417222724600172", "kind": "x" }, { "label": "Annotation API documentation", "url": "https://learn.chatgpt.com/docs/annotations-extensibility#open-an-annotation-from-your-website", "kind": "documentation" }]
+    },
+    {
+      "id": "claude-slides", "target": "Claude Slides", "category": "creative", "language": "zh", "evidence": "code", "author": "@dotey", "publishedAt": "2026-10-11", "checkedAt": "2026-10-12", "tools": ["REA Skill", "Codex", "Claude Code"],
+      "title": { "zh": "从混淆脚本，重建 Slides 编辑器", "en": "Rebuild a Slides editor from obfuscated assets" },
+      "summary": { "zh": "下载编辑器脚本和样式，交给 REA Skill 分析，再用 Claude Code 整理代码。原帖提供了实现提交。", "en": "Inspect downloaded editor scripts and styles with REA Skill, then restructure the recovered implementation with Claude Code. A code commit is linked." },
+      "question": { "zh": "能否从发布后的前端资源中，理解并重建 Slides 编辑器？", "en": "Can a Slides editor be understood and rebuilt from shipped frontend assets?" },
+      "outcome": { "zh": "作者报告复现了几乎完整的编辑器功能，并公开 baocut 中的相关提交。", "en": "The author reports nearly complete editor functionality and links a corresponding commit in baocut." },
+      "workflow": { "zh": ["保存核心 JavaScript 与样式文件。", "在 Codex 中安装 REA，用 REA Skill 分析混淆代码。", "用 Claude Code 重写与整理类型，再检查实现。"], "en": ["Save the core JavaScript and stylesheets.", "Set up REA in Codex and inspect the obfuscated code with its skill.", "Rewrite and organize the types with Claude Code, then inspect the implementation."] },
+      "limitation": { "zh": "“几乎完整”是作者描述，不是本站的功能覆盖测试。公开实现也不等于恢复了原始源码。", "en": "'Nearly complete' is the author's assessment, not a coverage test by this collection. The implementation is not proof of recovered original source." },
+      "sources": [{ "label": "X · @dotey", "url": "https://x.com/dotey/status/2109151666020794711", "kind": "x" }, { "label": "baocut · implementation commit", "url": "https://github.com/JimLiu/baocut/commit/b8585e0c8d7a82bdee9f0ed019cf6edb075e41c1", "kind": "code" }]
+    },
+    {
+      "id": "toilet-ble", "target": "Smart toilet / BLE", "category": "hardware", "language": "zh", "evidence": "report", "author": "@thinkszyg", "publishedAt": "2026-10-11", "checkedAt": "2026-10-12", "tools": ["REA", "Codex", "Bluetooth"],
+      "title": { "zh": "把智能马桶遥控器放进状态栏", "en": "Put a smart-toilet remote in the menu bar" },
+      "summary": { "zh": "用 REA 与 Codex 分析微信小程序的蓝牙控制协议，做出原生遥控器。作者展示电脑点击与实物翻盖的录屏。", "en": "Use REA and Codex to investigate a WeChat miniprogram's Bluetooth protocol and build a native remote, with a lid-control demonstration." },
+      "question": { "zh": "能否不用手机小程序，直接从电脑控制自己的设备？", "en": "Can an owned device be controlled from a computer instead of its phone miniprogram?" },
+      "outcome": { "zh": "作者报告约半小时做出状态栏应用，演示了从电脑操作马桶翻盖。", "en": "The author reports a menu-bar remote built in roughly half an hour and demonstrates opening the toilet lid from the computer." },
+      "workflow": { "zh": ["让 Codex 借助 REA 调查微信小程序的蓝牙协议。", "依据调查结果实现原生状态栏遥控器。", "通过实际设备动作检查控制是否生效。"], "en": ["Investigate the miniprogram's Bluetooth protocol with Codex and REA.", "Build a native menu-bar remote from the findings.", "Check the command against the physical device."] },
+      "limitation": { "zh": "原帖没有公开协议字段、完整源码或通用设备兼容性测试。半小时是该作者的单次经验。", "en": "The post does not publish protocol fields, complete source, or general compatibility tests. The timing describes one author's experience." },
+      "sources": [{ "label": "X · @thinkszyg", "url": "https://x.com/thinkszyg/status/2109309251533570509", "kind": "x" }]
+    },
+    {
+      "id": "dxball-pan", "target": "DX-Ball 1.07", "category": "games", "language": "en", "evidence": "code", "author": "REA / N0zoM1z0", "publishedAt": null, "checkedAt": "2026-10-12", "tools": ["REA", "Ghidra", "C", "x86"],
+      "title": { "zh": "恢复一个音效声像函数，逐字节核对", "en": "Recover a sound-pan function, then check its bytes" },
+      "summary": { "zh": "从不完整的伪代码回到 x86 指令，追踪输入与常量，把横坐标到左右声道的计算写成 C，再与原版对比。", "en": "Follow x86 instructions, caller references, and constants to reconstruct the game's position-to-pan calculation in C." },
+      "question": { "zh": "砖块的屏幕横坐标如何影响音效的左右声道位置？", "en": "How does a brick's screen position determine its sound's stereo pan?" },
+      "outcome": { "zh": "案例给出 3,205 组原始 x86 差分测试，以及完整 63 字节函数的编译匹配。", "en": "The case documents 3,205 original-x86 comparison cases and a compiler replay matching all 63 function bytes." },
+      "workflow": { "zh": ["检查目标函数的伪代码与汇编，找回缺失参数。", "追调用方与内存常量，恢复 C 表达式。", "对照原始 x86 返回值，再核对固定编译器生成的字节。"], "en": ["Inspect pseudocode and assembly to recover a missing input.", "Follow the caller and read constants to reconstruct the C expression.", "Compare original-x86 results and replay a pinned compiler for byte matching."] },
+      "limitation": { "zh": "验证范围是这个音效函数，不是整款游戏的完整重建。需要匹配的原始目标和固定工具链。", "en": "Validation covers this sound-pan function, not an entire reconstructed game. It depends on a matching target and pinned toolchain." },
+      "sources": [{ "label": "REA · DX-Ball investigation", "url": "https://rea.tools/showcase/dx-ball/", "kind": "official" }, { "label": "N0zoM1z0/dx-ball", "url": "https://github.com/N0zoM1z0/dx-ball", "kind": "code" }]
+    },
+    {
+      "id": "notion-clipboard", "target": "Notion Desktop", "category": "apps", "language": "en", "evidence": "official", "author": "REA", "publishedAt": null, "checkedAt": "2026-10-12", "tools": ["REA", "Electron", "JavaScript", "IPC"],
+      "title": { "zh": "沿着复制操作，追到系统剪贴板", "en": "Follow a copy operation to the system clipboard" },
+      "summary": { "zh": "穿过 Notion 的页面 API、preload 和主进程，追踪富文本复制链路，理解 HTML 标记如何关联本地块数据。", "en": "Trace Notion's page API through preload wrappers and main-process IPC, then examine how copied HTML references stored block data." },
+      "question": { "zh": "一次富文本复制经过哪些进程，块结构如何保留下来？", "en": "Which process boundaries does a rich-text copy cross, and how is block structure preserved?" },
+      "outcome": { "zh": "找到 notion:clipboard:write 链路，以及 HTML 中的 ID 与本地块数据之间的关联。", "en": "The investigation identifies the notion:clipboard:write route and the link between an HTML ID and locally retained block data." },
+      "workflow": { "zh": ["用 REA 分析发布包里的 preload，定位暴露 API 与 IPC 调用。", "顺着包装函数追到主进程剪贴板处理器。", "通过保存的模块探针检查块数据恢复行为。"], "en": ["Analyze the packaged preload with REA to locate exposed APIs and IPC.", "Resolve wrappers and follow the main-process clipboard receiver.", "Use saved module probes to check block-data restoration."] },
+      "limitation": { "zh": "桌面包为 7.6.1，网页资源另有版本。模块探针结果不能等同于完整桌面 UI 会话。", "en": "The desktop package is 7.6.1; cached web assets have a separate version. Module probes are not a full captured desktop UI session." },
+      "sources": [{ "label": "REA · Notion clipboard", "url": "https://rea.tools/showcase/notion/", "kind": "official" }]
+    },
+    {
+      "id": "th04-bullets", "target": "Touhou TH04 / PC-98", "category": "games", "language": "en", "evidence": "code", "author": "REA / N0zoM1z0", "publishedAt": null, "checkedAt": "2026-10-12", "tools": ["REA", "Ghidra", "16-bit x86", "C++"],
+      "title": { "zh": "从 16 位指令，恢复弹幕瞄准计算", "en": "Recover a bullet-ring calculation from 16-bit code" },
+      "summary": { "zh": "检查 PC-98 游戏的角度计算，把乘除法与坐标运算整理成 C++，理解固定与瞄准弹幕的生成规则。", "en": "Inspect a PC-98 game's angle helper and connect its arithmetic to a readable C++ reconstruction of fixed and aimed bullet rings." },
+      "question": { "zh": "弹幕环怎样根据玩家坐标确定瞄准角度？", "en": "How does the bullet ring choose an aiming angle from the player's position?" },
+      "outcome": { "zh": "官方案例展示了恢复的角度算法，并链接公开重建仓库。", "en": "The official case presents the recovered angle calculation and links a public reconstruction repository." },
+      "workflow": { "zh": ["分析原始 DOS 程序的 16 位函数。", "把坐标、乘法与除法对应到 C++。", "结合历史编译器输出检查重建。"], "en": ["Inspect the original DOS program's 16-bit function.", "Map coordinates, multiplication, and division to C++.", "Check the reconstruction against historical compiler output."] },
+      "limitation": { "zh": "此条关注角度辅助函数；不把局部重建结论推广为整款游戏都已验证。", "en": "This entry concerns an angle helper, without extending the result to a fully verified reconstruction of the whole game." },
+      "sources": [{ "label": "REA · TH04 investigation", "url": "https://rea.tools/showcase/th04/", "kind": "official" }, { "label": "N0zoM1z0/th04", "url": "https://github.com/N0zoM1z0/th04", "kind": "code" }]
+    },
+    {
+      "id": "aegis-totp", "target": "Aegis Authenticator", "category": "analysis", "language": "en", "evidence": "official", "author": "REA", "publishedAt": null, "checkedAt": "2026-10-12", "tools": ["REA", "JADX", "APK", "TOTP"],
+      "title": { "zh": "从 APK，理解验证码的 30 秒周期", "en": "Understand a login code's 30-second cycle from an APK" },
+      "summary": { "zh": "从 Aegis 发布的 APK 追踪验证码生成方法，恢复时间步长与六位数字的关系，再用可调时钟演示。", "en": "Trace code-generation methods in an Aegis release APK and demonstrate the recovered time-step rule with an adjustable clock." },
+      "question": { "zh": "为什么验证码会随时间变化，六位数字如何生成？", "en": "Why does the six-digit code change over time, and how is it calculated?" },
+      "outcome": { "zh": "官方案例用 APK 内的方法解释 TOTP 生成规则，并提供交互式时钟示例。", "en": "The official case connects APK methods to the TOTP rule and provides an interactive clock demonstration." },
+      "workflow": { "zh": ["对发布 APK 做静态分析，定位生成方法。", "追踪时间分组与验证码计算。", "用示例时钟观察跨时间步长的结果。"], "en": ["Statically inspect the release APK and locate generating methods.", "Trace time grouping and code calculation.", "Observe changes across time steps with a demonstration clock."] },
+      "limitation": { "zh": "这是已知算法与应用实现的分析，不代表能获取真实账户密钥或绕过认证。", "en": "This examines a known algorithm and its implementation; it does not recover real account keys or demonstrate authentication bypass." },
+      "sources": [{ "label": "REA · Aegis APK investigation", "url": "https://rea.tools/showcase/aegis/", "kind": "official" }]
+    },
+    {
+      "id": "ductf-checker", "target": "DownUnderCTF", "category": "analysis", "language": "en", "evidence": "official", "author": "REA", "publishedAt": null, "checkedAt": "2026-10-12", "tools": ["REA", "Native analysis", "Equations"],
+      "title": { "zh": "把 flag 检查逻辑，变成可求解的约束", "en": "Turn a flag checker into solvable constraints" },
+      "summary": { "zh": "分析一个入门 CTF 程序，找到检查函数，把掩码与求和逻辑改写成方程，再用原程序核对答案。", "en": "Find checking functions in an introductory CTF binary, translate masks and sums into equations, and verify the result with the original program." },
+      "question": { "zh": "检查器接受的输入必须满足哪些条件？", "en": "Which constraints must an input satisfy to pass the checker?" },
+      "outcome": { "zh": "官方案例展示从函数分析到约束求解，并在原程序中验证得到的 flag。", "en": "The official walkthrough follows function analysis through constraint solving to checking the resulting flag in the original binary." },
+      "workflow": { "zh": ["定位输入与 flag 检查函数。", "根据掩码和求和运算构建约束。", "求解输入，再交给原程序确认。"], "en": ["Locate input handling and flag-checking functions.", "Derive constraints from masking and sum operations.", "Solve for an input and confirm it with the original program."] },
+      "limitation": { "zh": "案例范围是一个特定入门挑战，不能作为任意复杂程序自动求解的证据。", "en": "The result is limited to one introductory challenge, not a demonstration of automatically solving arbitrary complex programs." },
+      "sources": [{ "label": "REA · DownUnderCTF walkthrough", "url": "https://rea.tools/showcase/ctf/", "kind": "official" }]
+    },
+    {
+      "id": "electron-static-ja", "target": "Self-built Electron app", "category": "apps", "language": "ja", "evidence": "report", "author": "海外Tech Radar", "publishedAt": "2026-10-08", "checkedAt": "2026-10-12", "tools": ["REA CLI", "Electron", "JavaScript"],
+      "title": { "zh": "用自己写的应用，检验静态分析的边界", "en": "Test static analysis against a self-built app" },
+      "summary": { "zh": "日文实践文章用一个四文件 Electron 风格应用核对 REA 的模块与 IPC 分析，同时记录动态路径没被解析的情况。", "en": "A Japanese hands-on article checks REA's module and IPC findings against a four-file Electron-style app and records unresolved dynamic paths." },
+      "question": { "zh": "REA 能识别自己已知的应用结构到什么程度？", "en": "How much of a known application structure can REA identify?" },
+      "outcome": { "zh": "作者报告识别了窗口、暴露 API 与 IPC 通道；部分字符串拼接路径没有解析出来。", "en": "The author reports detecting a window, exposed API, and IPC channel, while some string-composed paths remained unresolved." },
+      "workflow": { "zh": ["准备自己写的四文件应用。", "运行 analyze-javascript-application，查看 JSON 结果。", "用已知代码结构核对结果，记录漏掉的动态路径。"], "en": ["Prepare a small, self-built four-file application.", "Run analyze-javascript-application and inspect its JSON output.", "Compare findings with the known structure and record unresolved paths."] },
+      "limitation": { "zh": "是静态 CLI 调查，作者未验证 Agent 注册、原生反编译或实际运行行为。", "en": "This is static CLI inspection; the author did not test agent registration, native decompilation, or runtime behavior." },
+      "sources": [{ "label": "日本語 · hands-on article", "url": "https://note.com/kaigai_tech/n/n47bb7d83bc60", "kind": "article" }]
+    },
+    {
+      "id": "lemmings-reconstruction", "target": "Lemmings (1991)", "category": "games", "language": "en", "evidence": "report", "author": "@AZERDSQ0329", "publishedAt": "2026-10-12", "checkedAt": "2026-10-12", "tools": ["REA", "Game reconstruction"],
+      "title": { "zh": "用 REA 调查 Lemmings，继续逐像素重建", "en": "Investigate Lemmings with REA, then refine the reconstruction" },
+      "summary": { "zh": "英文社区进展帖明确提到使用 REA 重建 1991 年的 Lemmings，作者表示正在逐像素调整复现结果。", "en": "An English community progress post explicitly names REA in a reconstruction of the 1991 game Lemmings, with pixel-level adaptation still underway." },
+      "question": { "zh": "理解经典游戏后，怎样继续重建它的视觉与行为？", "en": "After investigating a classic game, how does its reconstruction continue?" },
+      "outcome": { "zh": "作者报告已完成逆向分析，正在逐像素调整。收录为进行中的个人实践。", "en": "The author reports completing the reverse-engineering phase and continuing pixel-level adaptation. This is an in-progress personal report." },
+      "workflow": { "zh": ["作者明确使用 REA 开展 Lemmings 重建。", "原帖更新了逐像素调整阶段的进展。"], "en": ["The author explicitly uses REA for a Lemmings reconstruction.", "The post updates progress on pixel-level adaptation."] },
+      "limitation": { "zh": "这是一条短进展帖，未提供完整调查步骤、公开仓库或差分测试。不能据此认定整款游戏已验证完成。", "en": "This short progress post does not provide a full investigation trail, public repository, or differential tests. It does not establish a fully verified game." },
+      "sources": [{ "label": "X · @AZERDSQ0329", "url": "https://x.com/AZERDSQ0329/status/2109599439471923391", "kind": "x" }]
+    },
+    {
+      "id": "ac-ar-inspiration", "target": "Air conditioner / AR", "category": "hardware", "language": "en", "evidence": "related", "author": "@icanberk / @jinglian", "publishedAt": "2026-10-12", "checkedAt": "2026-10-12", "tools": ["Codex", "Lens Studio", "AR glasses"],
+      "title": { "zh": "从状态栏到 AR 眼镜的设备遥控思路", "en": "Take an appliance remote from desktop to AR glasses" },
+      "summary": { "zh": "jinglian 用这个空调案例讨论协议调查的方向。原作者展示了用 Codex 与 Lens Studio 将控制应用移植到眼镜。", "en": "jinglian cites an air-conditioner remote as protocol-investigation inspiration. Its creator shows a glasses port made with Codex and Lens Studio." },
+      "question": { "zh": "设备控制能否从厂商 App 延伸到自己常用的界面？", "en": "Can appliance controls move from a vendor app to an interface you use every day?" },
+      "outcome": { "zh": "原作者报告用不到 15 分钟完成眼镜端移植，附有视频演示。", "en": "The original creator reports a glasses port in under 15 minutes and includes a video demonstration." },
+      "workflow": { "zh": ["从 jinglian 的协议调查讨论追到原作者视频。", "原作者用 Codex 与 Lens Studio 移植已有应用。", "在 AR 眼镜上演示设备控制。"], "en": ["Follow jinglian's discussion to the original creator's video.", "The creator ports an existing app with Codex and Lens Studio.", "Demonstrate appliance control on AR glasses."] },
+      "limitation": { "zh": "原作者这条移植帖没有提到 REA。作为相关思路收录，不归为已确认使用 REA 的成果。", "en": "The creator's porting post does not mention REA. This is related inspiration, not a confirmed REA result." },
+      "sources": [{ "label": "X · @jinglian · REA discussion", "url": "https://x.com/jinglian/status/2109567957890429431", "kind": "x" }, { "label": "X · @icanberk · original AR demo", "url": "https://x.com/icanberk/status/2109122304429236559", "kind": "x" }]
+    },
+    {
+      "id": "annotation-recording", "target": "Browser annotations", "category": "devtools", "language": "zh", "evidence": "related", "author": "@LinearUncle", "publishedAt": "2026-10-12", "checkedAt": "2026-10-12", "tools": ["Screen recording", "Fable", "Agent harness"],
+      "title": { "zh": "用录屏，复刻浏览器注解交互", "en": "Recreate browser annotation interactions from a recording" },
+      "summary": { "zh": "回应 REA 的 Codex 注解调查，提供另一条路线：录下标记、评论、发送的完整操作，让助手按可见行为实现。", "en": "In response to the REA annotation investigation, this post offers an alternative: record the interaction and have an agent reproduce the visible behavior." },
+      "question": { "zh": "只复现交互时，录屏是否已经足够提供参考？", "en": "Can a screen recording provide enough reference when reproducing an interaction?" },
+      "outcome": { "zh": "作者报告自己的 harness 已通过录屏方式复刻内置浏览器注解功能。", "en": "The author reports recreating the built-in browser annotation feature in their harness using recordings." },
+      "workflow": { "zh": ["录下标记、填写评论与发送操作。", "将录屏交给 Fable，要求按交互复刻。", "在自己的 harness 中实现对应功能。"], "en": ["Record marking, writing a comment, and sending it.", "Give the recording to Fable as an interaction reference.", "Implement the feature in the author's own harness."] },
+      "limitation": { "zh": "作者自己的实现采用录屏方法；提到 REA 是引用宝玉的调查。Opus 的部分是作者估计，不是已验证结果。", "en": "The author's implementation uses recording-based reconstruction; REA refers to dotey's separate investigation. The Opus suggestion is an estimate." },
+      "sources": [{ "label": "X · @LinearUncle", "url": "https://x.com/LinearUncle/status/2109467895013281896", "kind": "x" }, { "label": "X · @dotey · referenced REA investigation", "url": "https://x.com/dotey/status/2109417222724600172", "kind": "x" }]
+    }
+  ]
+}

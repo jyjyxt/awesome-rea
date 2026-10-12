@@ -1,0 +1,13 @@
+{
+  "name": "awesome-rea",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A source-backed, multilingual collection of REA investigations.",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/check.mjs && node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

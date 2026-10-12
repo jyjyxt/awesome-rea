@@ -1,0 +1,41 @@
+name: Suggest a REA case / 推荐案例
+description: Share a concrete investigation in any language / 欢迎任何语言的具体实践
+title: "[Case] "
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Original source / 原始来源
+      description: Link to the original post, write-up, or repository.
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Target and question / 对象与问题
+      placeholder: Which app, game, device, or feature was investigated?
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow and outcome / 过程与结果
+      description: Describe the reported steps and results. Any language is welcome.
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: Evidence / 证据
+      options:
+        - Public code or tests / 公开代码或测试
+        - Author explicitly used REA / 作者明确使用 REA
+        - Official investigation / 官方调查
+        - Related inspiration; REA use unconfirmed / 相关思路，未确认使用 REA
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Evidence scope and extra links / 证据范围与补充链接
+      description: Include limitations, demonstrations, code commits, or reproduction notes.
