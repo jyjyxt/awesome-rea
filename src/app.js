@@ -11,7 +11,7 @@
   const byId = new Map(data.cases.map(entry => [entry.id, entry]));
   const normalize = value => value.normalize('NFKC').toLocaleLowerCase();
   const searchable = new Map(data.cases.map(entry => [entry.id, normalize([entry.target, entry.author, ...entry.tools, ...Object.values(entry.title), ...Object.values(entry.summary), ...Object.values(entry.outcome), ...Object.values(data.categories[entry.category])].join(' '))]));
-  let uiLanguage = new URLSearchParams(location.search).get('ui') === 'en' ? 'en' : 'zh';
+  let uiLanguage = new URLSearchParams(location.search).get('ui') === 'zh' ? 'zh' : 'en';
   let category = 'all';
   let openedId = null;
   let returnFocus = null;
@@ -21,7 +21,7 @@
 
   function updateURL() {
     const url = new URL(location.href);
-    for (const [key, value, fallback] of [['q', search.value.trim(), ''], ['category', category, 'all'], ['language', sourceLanguage.value, 'all'], ['evidence', evidence.value, 'all'], ['ui', uiLanguage, 'zh']]) {
+    for (const [key, value, fallback] of [['q', search.value.trim(), ''], ['category', category, 'all'], ['language', sourceLanguage.value, 'all'], ['evidence', evidence.value, 'all'], ['ui', uiLanguage, 'en']]) {
       if (value === fallback) url.searchParams.delete(key);
       else url.searchParams.set(key, value);
     }
@@ -108,7 +108,7 @@
     category = selected && data.categories[selected] ? selected : 'all';
     sourceLanguage.value = data.cases.some(c => c.language === params.get('language')) ? params.get('language') : 'all';
     evidence.value = ['code', 'report', 'official', 'related'].includes(params.get('evidence')) ? params.get('evidence') : 'all';
-    uiLanguage = params.get('ui') === 'en' ? 'en' : 'zh';
+    uiLanguage = params.get('ui') === 'zh' ? 'zh' : 'en';
     applyLanguage();
     const id = location.hash.startsWith('#case/') ? location.hash.slice(6) : null;
     if (id && byId.has(id)) openDetail(id, false);

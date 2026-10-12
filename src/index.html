@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f1f5f8">
-  <title>Awesome REA — 看见软件背后的实现</title>
-  <meta name="description" content="REA 应用实例集：从 X 社区实践到官方调查，了解 AI 智能体如何分析软件、追踪行为和重建功能。中英文摘要，原帖与证据链接。">
+  <title>Awesome REA — Investigations, with receipts.</title>
+  <meta name="description" content="Explore real-world REA investigations from community projects and official showcases, with clear workflows, bilingual summaries, and original evidence.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Awesome REA — Investigations, with receipts.">
   <meta property="og:description" content="Real-world REA investigations. Original sources, clear workflows, and honest limits. 中文 / English.">
@@ -16,14 +16,14 @@
   <script src="./assets/app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#collection" data-i18n="skip">跳到案例</a>
+  <a class="skip-link" href="#collection" data-i18n="skip">Skip to cases</a>
   <header class="site-header wrap">
     <a class="brand" href="./" aria-label="Awesome REA"><span class="brand-mark" aria-hidden="true">r<span>↗</span></span><span>awesome<span class="brand-rea">rea</span><span class="brand-dot">.</span></span></a>
     <nav class="header-nav" aria-label="Main navigation">
-      <a href="#collection" data-i18n="navCases">案例集</a>
-      <a href="#about" data-i18n="navAbout">关于收录</a>
+      <a href="#collection" data-i18n="navCases">Collection</a>
+      <a href="#about" data-i18n="navAbout">How we curate</a>
       <a class="repo-link" href="https://github.com/jyjyxt/awesome-rea" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-      <button class="language-toggle" id="ui-language" type="button" aria-label="Switch to English">EN</button>
+      <button class="language-toggle" id="ui-language" type="button" aria-label="切换到中文">中文</button>
     </nav>
   </header>
 
@@ -31,47 +31,47 @@
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> REVERSE ENGINEER ANYTHING / IN PRACTICE</p>
-        <h1 id="hero-title"><span data-i18n="heroLine1">拆开软件。</span><br><span class="hero-accent" data-i18n="heroLine2">看见可能。</span></h1>
-        <p class="hero-description" data-i18n="heroDescription">人们正在用 REA 做什么？从字幕模板到设备协议，收集真实调查、实现路径和能追溯的原始证据。</p>
-        <div class="hero-actions"><a class="button primary" href="#collection"><span data-i18n="explore">探索案例</span><span aria-hidden="true">↓</span></a><a class="upstream-link" href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer"><span data-i18n="upstream">了解 REA</span> <span aria-hidden="true">↗</span></a></div>
-        <p class="hero-note" data-i18n="heroNote">来自 X 与公开项目 · 保留原始语言 · 每条都有来源</p>
+        <h1 id="hero-title"><span data-i18n="heroLine1">Open the app.</span><br><span class="hero-accent" data-i18n="heroLine2">Follow the trail.</span></h1>
+        <p class="hero-description" data-i18n="heroDescription">What are people doing with REA? Explore real investigations, from caption templates to device protocols, with the workflows and original evidence behind them.</p>
+        <div class="hero-actions"><a class="button primary" href="#collection"><span data-i18n="explore">Explore the collection</span><span aria-hidden="true">↓</span></a><a class="upstream-link" href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer"><span data-i18n="upstream">Meet REA</span> <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-note" data-i18n="heroNote">From X &amp; public projects · Original languages · Sources included</p>
       </div>
       <div class="trace-board">
         <div class="trace-heading"><span class="tiny-label">INVESTIGATION TRACE</span><span class="trace-source">@dotey / X</span></div>
-        <div class="trace-input"><span class="trace-icon" aria-hidden="true">Aa<span>▎</span></span><div><span class="tiny-label" data-i18n="traceTarget">调查对象</span><h2>CapCut<span data-i18n="traceSubject">动态字幕</span></h2></div><span class="trace-file">.template</span></div>
+        <div class="trace-input"><span class="trace-icon" aria-hidden="true">Aa<span>▎</span></span><div><span class="tiny-label" data-i18n="traceTarget">INVESTIGATION TARGET</span><h2>CapCut<span data-i18n="traceSubject">Animated captions</span></h2></div><span class="trace-file">.template</span></div>
         <div class="trace-connection" aria-hidden="true"><span></span><code>observe → locate → understand</code></div>
         <div class="trace-tools"><span class="tool-node">REA</span><span class="plus" aria-hidden="true">+</span><span class="tool-node secondary-node">Computer Use</span><span class="plus" aria-hidden="true">+</span><span class="tool-node secondary-node">Codex</span></div>
         <div class="trace-connection lower-connection" aria-hidden="true"><span></span><code>UI activity → network → local files</code></div>
-        <div class="trace-result"><div><span class="tiny-label" data-i18n="traceOutcome">作者报告的结果</span><p><strong>2,291</strong> <span data-i18n="traceTemplates">个模板</span></p></div><span class="result-check" aria-hidden="true">↗</span></div>
-        <button class="trace-more" type="button" data-open="capcut-templates"><span data-i18n="traceRead">沿着这条线索，看看怎么做的</span><span aria-hidden="true">↗</span></button>
+        <div class="trace-result"><div><span class="tiny-label" data-i18n="traceOutcome">AUTHOR-REPORTED RESULT</span><p><strong>2,291</strong> <span data-i18n="traceTemplates">templates</span></p></div><span class="result-check" aria-hidden="true">↗</span></div>
+        <button class="trace-more" type="button" data-open="capcut-templates"><span data-i18n="traceRead">Follow this investigation</span><span aria-hidden="true">↗</span></button>
       </div>
     </section>
 
-    <div class="collection-strip"><div class="wrap strip-content"><p><span class="tiny-label">THE COLLECTION</span><strong data-i18n="stripText">具体的问题。可追溯的发现。</strong></p><div class="strip-meta"><span>%%COUNT%% <span data-i18n="entries">条收录</span></span><span>%%LANGUAGES%% <span data-i18n="languages">种原帖语言</span></span><span class="updated"><span data-i18n="updated">更新</span> <time datetime="%%UPDATED%%">%%UPDATED%%</time></span></div></div></div>
+    <div class="collection-strip"><div class="wrap strip-content"><p><span class="tiny-label">THE COLLECTION</span><strong data-i18n="stripText">Specific questions. Traceable findings.</strong></p><div class="strip-meta"><span>%%COUNT%% <span data-i18n="entries">entries</span></span><span>%%LANGUAGES%% <span data-i18n="languages">source languages</span></span><span class="updated"><span data-i18n="updated">Updated</span> <time datetime="%%UPDATED%%">%%UPDATED%%</time></span></div></div></div>
 
     <section class="collection wrap" id="collection" aria-labelledby="collection-title">
-      <div class="section-heading"><div><p class="eyebrow" data-i18n="collectionEyebrow">从别人的调查，找到自己的起点</p><h2 id="collection-title" data-i18n="collectionTitle">应用实例</h2></div><a class="contribute-link" href="https://github.com/jyjyxt/awesome-rea/issues/new?template=case.yml" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">＋</span><span data-i18n="submit">推荐一个案例</span></a></div>
+      <div class="section-heading"><div><p class="eyebrow" data-i18n="collectionEyebrow">Find a starting point in someone else&#39;s investigation</p><h2 id="collection-title" data-i18n="collectionTitle">The collection</h2></div><a class="contribute-link" href="https://github.com/jyjyxt/awesome-rea/issues/new?template=case.yml" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">＋</span><span data-i18n="submit">Suggest a case</span></a></div>
       <div class="filter-bar" id="filters" hidden>
-        <div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="search" data-i18n="searchLabel">搜索案例</label><input id="search" type="search" placeholder="搜索应用、作者、工具…" data-i18n-placeholder="searchPlaceholder" autocomplete="off"><kbd aria-hidden="true">/</kbd></div>
-        <div class="select-wrap"><label class="sr-only" for="source-language" data-i18n="languageLabel">原帖语言</label><select id="source-language">%%LANGUAGE_OPTIONS%%</select></div>
-        <div class="select-wrap"><label class="sr-only" for="evidence" data-i18n="evidenceLabel">证据类型</label><select id="evidence"><option value="all" data-i18n="allEvidence">所有证据类型</option><option value="code" data-i18n="evidenceCode">有公开代码</option><option value="report" data-i18n="evidenceReport">作者实践</option><option value="official" data-i18n="evidenceOfficial">官方调查</option><option value="related" data-i18n="evidenceRelated">相关思路</option></select></div>
+        <div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="search" data-i18n="searchLabel">Search cases</label><input id="search" type="search" placeholder="Search apps, authors, tools…" data-i18n-placeholder="searchPlaceholder" autocomplete="off"><kbd aria-hidden="true">/</kbd></div>
+        <div class="select-wrap"><label class="sr-only" for="source-language" data-i18n="languageLabel">Original language</label><select id="source-language">%%LANGUAGE_OPTIONS%%</select></div>
+        <div class="select-wrap"><label class="sr-only" for="evidence" data-i18n="evidenceLabel">Evidence type</label><select id="evidence"><option value="all" data-i18n="allEvidence">All evidence types</option><option value="code" data-i18n="evidenceCode">Public code</option><option value="report" data-i18n="evidenceReport">Author report</option><option value="official" data-i18n="evidenceOfficial">Official investigation</option><option value="related" data-i18n="evidenceRelated">Related inspiration</option></select></div>
       </div>
       <div class="category-row" id="categories" role="group" aria-label="Case categories" hidden>%%CATEGORIES%%</div>
-      <div class="results-row"><p id="results-count" role="status" aria-live="polite">%%COUNT%% 条案例与相关思路</p><span class="results-hint" data-i18n="resultHint">点开案例，查看步骤与证据范围</span><button class="reset-filters" type="button" id="reset-filters" data-i18n="reset" hidden>清除筛选</button></div>
+      <div class="results-row"><p id="results-count" role="status" aria-live="polite">%%COUNT%% cases &amp; related ideas</p><span class="results-hint" data-i18n="resultHint">Open a case for its workflow and evidence</span><button class="reset-filters" type="button" id="reset-filters" data-i18n="reset" hidden>Clear filters</button></div>
       <div class="case-grid" id="case-grid">%%CARDS%%</div>
-      <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3 data-i18n="emptyTitle">没有找到匹配的案例</h3><p data-i18n="emptyText">试试其他关键词，或清除语言和分类筛选。</p><button class="button primary" type="button" id="empty-reset" data-i18n="reset">清除筛选</button></div>
-      <noscript><p class="noscript">所有案例与来源可直接阅读。启用 JavaScript 后可使用搜索、筛选和中英文切换。</p></noscript>
+      <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3 data-i18n="emptyTitle">No matching cases</h3><p data-i18n="emptyText">Try another keyword or clear the language and category filters.</p><button class="button primary" type="button" id="empty-reset" data-i18n="reset">Clear filters</button></div>
+      <noscript><p class="noscript">All cases and sources are readable without JavaScript. Enable JavaScript for search, filters, and English/Chinese switching.</p></noscript>
     </section>
 
     <section class="about wrap" id="about" aria-labelledby="about-title">
-      <div class="about-heading"><p class="eyebrow">A COLLECTION WITH RECEIPTS</p><h2 id="about-title" data-i18n="aboutTitle">有出处，也有边界。</h2><p data-i18n="aboutDescription">这里收集具体调查，不用热度替代成果。每条摘要都指向原始材料，作者报告的结果与可检查的代码分别标明。</p><a href="https://github.com/jyjyxt/awesome-rea/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"><span data-i18n="guidelines">阅读收录标准</span> ↗</a></div>
-      <div class="evidence-guide"><div><span class="evidence-dot code-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceCode">有公开代码</h3><p data-i18n="guideCode">可以继续检查实现、提交或测试；不表示本站已独立复现。</p></div></div><div><span class="evidence-dot report-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceReport">作者实践</h3><p data-i18n="guideReport">作者明确使用 REA，并描述过程或结果；结论保留其原有范围。</p></div></div><div><span class="evidence-dot official-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceOfficial">官方调查</h3><p data-i18n="guideOfficial">REA 项目发布的具体案例，可沿着分析路径查看证据。</p></div></div><div><span class="evidence-dot related-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceRelated">相关思路</h3><p data-i18n="guideRelated">有参考价值，但原作者未确认使用 REA，或采用了其他复刻方法。</p></div></div></div>
+      <div class="about-heading"><p class="eyebrow">A COLLECTION WITH RECEIPTS</p><h2 id="about-title" data-i18n="aboutTitle">Sources, and their limits.</h2><p data-i18n="aboutDescription">We collect specific investigations. Every summary leads back to original material, with author reports distinguished from inspectable implementations.</p><a href="https://github.com/jyjyxt/awesome-rea/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"><span data-i18n="guidelines">Read the curation guidelines</span> ↗</a></div>
+      <div class="evidence-guide"><div><span class="evidence-dot code-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceCode">Public code</h3><p data-i18n="guideCode">Inspect an implementation, commit, or test. This does not mean we independently reproduced it.</p></div></div><div><span class="evidence-dot report-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceReport">Author report</h3><p data-i18n="guideReport">The author names REA and describes a process or outcome. Claims keep their original scope.</p></div></div><div><span class="evidence-dot official-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceOfficial">Official investigation</h3><p data-i18n="guideOfficial">A concrete case published by the REA project, with an investigation trail to follow.</p></div></div><div><span class="evidence-dot related-dot" aria-hidden="true"></span><div><h3 data-i18n="evidenceRelated">Related inspiration</h3><p data-i18n="guideRelated">A useful adjacent idea whose creator did not confirm REA use, or used another method.</p></div></div></div>
     </section>
-    <section class="submission wrap"><div><p class="eyebrow">KEEP THE TRAIL GOING</p><h2 data-i18n="submissionTitle">你发现了什么？</h2><p data-i18n="submissionText">一条原帖，一个具体对象，一段能看懂的调查过程。欢迎任何语言的实践。</p></div><a class="button primary" href="https://github.com/jyjyxt/awesome-rea/issues/new?template=case.yml" target="_blank" rel="noopener noreferrer"><span data-i18n="submit">推荐一个案例</span><span aria-hidden="true">↗</span></a></section>
+    <section class="submission wrap"><div><p class="eyebrow">KEEP THE TRAIL GOING</p><h2 data-i18n="submissionTitle">What did you find?</h2><p data-i18n="submissionText">An original post, a specific target, and a process others can follow. Contributions in every language are welcome.</p></div><a class="button primary" href="https://github.com/jyjyxt/awesome-rea/issues/new?template=case.yml" target="_blank" rel="noopener noreferrer"><span data-i18n="submit">Suggest a case</span><span aria-hidden="true">↗</span></a></section>
   </main>
-  <footer class="site-footer wrap"><a class="footer-brand" href="./">awesome rea.</a><p data-i18n="footerNote">独立社区收集，与 REA 官方无隶属关系。</p><div><a href="https://rea.tools" target="_blank" rel="noopener noreferrer">rea.tools ↗</a><a href="https://github.com/jyjyxt/awesome-rea" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></footer>
+  <footer class="site-footer wrap"><a class="footer-brand" href="./">awesome rea.</a><p data-i18n="footerNote">An independent community collection, not affiliated with REA.</p><div><a href="https://rea.tools" target="_blank" rel="noopener noreferrer">rea.tools ↗</a><a href="https://github.com/jyjyxt/awesome-rea" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></footer>
 
-  <dialog id="case-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="tiny-label">INVESTIGATION NOTES</span><button type="button" class="dialog-close" id="dialog-close" aria-label="关闭 / Close">×</button></div><div id="dialog-content"></div></dialog>
+  <dialog id="case-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="tiny-label">INVESTIGATION NOTES</span><button type="button" class="dialog-close" id="dialog-close" aria-label="Close">×</button></div><div id="dialog-content"></div></dialog>
   <script id="case-data" type="application/json">%%DATA%%</script>
 </body>
 </html>
